@@ -1,0 +1,18 @@
+<div class="app-component-wrapper">
+  <div
+    *ngIf="timerStatus === 'running' || timerStatus === 'paused'"
+    class="timer-display"
+  >
+    {{ count }}
+  </div>
+  <div *ngIf="timerStatus === 'canceled'" class="timer-display">{{ text }}</div>
+
+  <button
+    class="cancel-button"
+    (click)="cancel()"
+    [disabled]="timerStatus === 'canceled'"
+  >
+    Cancel
+  </button>
+  <button (click)="onClick()">{{ startButtonText }}</button>
+</div>
