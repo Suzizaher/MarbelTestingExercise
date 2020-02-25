@@ -1,16 +1,16 @@
 <div class="app-component-wrapper">
   <div
-    *ngIf="timerStatus === 'running' || timerStatus === 'paused'"
+    *ngIf="currentTimerStatus === timerStatus.Running || currentTimerStatus === timerStatus.Paused"
     class="timer-display"
   >
     {{ count }}
   </div>
-  <div *ngIf="timerStatus === 'canceled'" class="timer-display">{{ text }}</div>
+  <div *ngIf="currentTimerStatus === timerStatus.Cancelled" class="timer-display">{{ text }}</div>
 
   <button
     class="cancel-button"
     (click)="cancel()"
-    [disabled]="timerStatus === 'canceled'"
+    [disabled]="currentTimerStatus === timerStatus.Cancelled"
   >
     Cancel
   </button>
